@@ -12,10 +12,11 @@ import pandas as pd
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
 # Insert Comment 
-app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
+dash_app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
+app = dash_app.server
 
 # The "layout" is a hierarchical tree of components that describes what the Dash app looks like. 
-app.layout = html.Div(children=[
+dash_app.layout = html.Div(children=[
     # Create a Title for the website  
     html.H1(children='Input to Generate Allergen Matrix'),
 
@@ -38,5 +39,5 @@ app.layout = html.Div(children=[
 #     return "Hello, Keith"
 
 if __name__ == '__main__':
-    app.run_server(debug=True)
+    dash_app.run_server(debug=True)
 
